@@ -8,7 +8,7 @@ spec:
   accessModes:
     - ReadWriteMany
   hostPath:
-    path: "/Users/gru/IdeaProjects/kube_pg"
+    path: "/Users/gru/IdeaProjects/kube_pg/data"
   storageClassName: local
 ---
 kind: PersistentVolumeClaim

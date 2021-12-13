@@ -21,13 +21,14 @@ spec:
       containers:
       - image: postgres:10.13
         name: postgres
-        imagePullPolicy: "IfNotPresent"
         ports:
         - containerPort: 5432
         volumeMounts:
         - name: postgredb
-          mountPath: /Users/gru/IdeaProjects/kube_pg/pgdata
+          mountPath: /var/lib/postgresql/data/pgdata
         env:
+          - name: PGDATA
+            value: /var/lib/postgresql/data/pgdata
           - name: POSTGRES_PASSWORD
             valueFrom:
               secretKeyRef:
