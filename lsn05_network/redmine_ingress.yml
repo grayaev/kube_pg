@@ -1,17 +1,18 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-    name: remine-ingress
+    name: redmine-ingress
     annotations:
-        nginx.ingress.kubernetes.io/rewrite-target: /
+        nginx.ingress.kubernetes.io/rewrite-target: /$1
 spec:
     rules:
-        - http:
+        - host: local.host
+          http:
               paths:
-                  - path: /remine
+                  - path: /
                     pathType: Prefix
                     backend:
                         service:
                             name: redmine
                             port:
-                                number: 80
+                                number: 3000
